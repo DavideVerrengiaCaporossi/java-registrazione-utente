@@ -11,10 +11,7 @@ public class Utente {
 	public Utente(String nome,String cognome, String email, String password, int eta) throws IllegalArgumentException, NullPointerException, Exception {
 		super();
 		
-		//richiama i metodi nel costruttore e nei metodi set
-		validaEmail (email);
-		valutaPassword(password);
-		valutaEta(eta);
+		
 		
 		//metodo
 		
@@ -23,6 +20,11 @@ public class Utente {
 		this.email = email;
 		this.password = password;
 		this.eta = eta;
+		
+		//richiama i metodi nel costruttore e nei metodi set
+				validaEmail (email);
+				valutaPassword(password);
+				valutaEta(eta);
 	}
 	//get e set
 	public String getNome() {
@@ -63,7 +65,7 @@ public class Utente {
 		if (emailImput == null) { 
 			throw new IllegalArgumentException("email non valida");
 		}
-		if(email.contains("@")|| !email.contains(".")) 
+		if(!(email.contains("@"))|| !(email.contains("."))) 
 		{
 			//interrompi e solleva eccezioni
 			throw new NullPointerException("email non valida deve contenere @ e .");
