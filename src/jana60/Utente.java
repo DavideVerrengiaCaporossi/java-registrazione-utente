@@ -1,18 +1,20 @@
 package jana60;
 
+
+
 public class Utente {
 //attributi
 	private String nome, email, password;
 	private int eta;
 	//costruttore
 															      //qua si richiamano tute le eccezioni di ogni metodo per fargli gestire gli errori
-	public Utente(String nome, String email, String password, int eta) throws IllegalArgumentException, NullPointerException {
+	public Utente(String nome, String email, String password, int eta) throws IllegalArgumentException, NullPointerException, Exception {
 		super();
 		
-		//richiama i metodi
+		//richiama i metodi nel costruttore e nei metodi set
 		validaEmail (email);
-		validaPassword(password);
-		validaEta(eta);
+		valutaPassword(password);
+		valutaEta(eta);
 		
 		//metodo
 		
@@ -31,21 +33,21 @@ public class Utente {
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public void setEmail(String email) throws IllegalArgumentException, NullPointerException{
 		validaEmail (email);
 		this.email = email;
 	}
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(String password) throws IllegalArgumentException, NullPointerException {
 		valutaPassword(password);
 		this.password = password;
 	}
 	public int getEta() {
 		return eta;
 	}
-	public void setEta(int eta) {
+	public void setEta(int eta) throws Exception{
 		valutaEta(eta);
 		this.eta = eta;
 	}
@@ -60,7 +62,8 @@ public class Utente {
 			throw new NullPointerException("email non valida deve contenere @ e .");
 		
 		}
-	private void validaPassword(String passwordImput) throws IllegalArgumentException, NullPointerException {
+	}
+	private void valutaPassword(String passwordImput) throws IllegalArgumentException, NullPointerException {
 		if(passwordImput == null) {
 			throw new NullPointerException("password non valida");
 		}
@@ -69,9 +72,9 @@ public class Utente {
 		}
 			
 		}
-	}
-	  public void validaEta() throws Exception {
-	        if (eta<18)
+	
+	  public void valutaEta(int etaImput) throws Exception {
+	        if (etaImput<18)
 	            throw new Exception("Devi avere più di 18 anni");
 	    
 	    }
