@@ -1,14 +1,14 @@
 package jana60;
 
-
+//potremmo usate anche solo throws Exception PER QUESTO ESERCIZIO MA HO USATO I CONTROLLI CONSIGLIATI DA COSTANZA
 
 public class Utente {
 //attributi
-	private String nome, email, password;
+	private String nome,cognome, email, password;
 	private int eta;
 	//costruttore
-															      //qua si richiamano tute le eccezioni di ogni metodo per fargli gestire gli errori
-	public Utente(String nome, String email, String password, int eta) throws IllegalArgumentException, NullPointerException, Exception {
+															      //qua si richiamano tutte le eccezioni di ogni metodo per fargli gestire gli errori
+	public Utente(String nome,String cognome, String email, String password, int eta) throws IllegalArgumentException, NullPointerException, Exception {
 		super();
 		
 		//richiama i metodi nel costruttore e nei metodi set
@@ -19,6 +19,7 @@ public class Utente {
 		//metodo
 		
 		this.nome = nome;
+		this.cognome = cognome;
 		this.email = email;
 		this.password = password;
 		this.eta = eta;
@@ -29,6 +30,12 @@ public class Utente {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public String getCognome() {
+		return nome;
+	}
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
 	}
 	public String getEmail() {
 		return email;
